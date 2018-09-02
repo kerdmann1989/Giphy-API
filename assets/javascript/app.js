@@ -53,30 +53,23 @@ function addNewButton() {
       method: "GET"
 
     }).then(function(response) {
-
-        // $("#gifs-appear-here").empty();
      
       var results = response.data;
-
-      console.log(response.data)
-
-    //   if (results = "") {
-    //       alert("Sorry - there is no gif for your request");
-    //   }
       
       for (var i = 0; i < results.length; i++) {
 
         var gifDiv = $("<div>");
-        // var gifRating = $("<p>").text("Rating " + results[i].rating);
+        var gifRating = $("<p>").text("Rating " + results[i].rating);
 
-        // gifDiv.append(gifRating);
-        // console.log(gifRating)
+        gifDiv.append(gifRating);
+       
 
       var gifImage = $("<img>");
       console.log("?")
-    //   $("<img id = 'gifimg' class='unit'>");  
+    
+        if (results[i].rating !== "r" && results[i].rating !=="pg-13")
         gifImage.attr("src", results[i].images.fixed_height_still.url);
-         // gifImage.attr({'data-state': "animate"})
+        
          gifImage.attr("data-still", results[i].images.fixed_height_still.url);
          gifImage.attr("data-animate", results[i].images.fixed_height.url);
          gifImage.attr("data-state", "still");
@@ -84,7 +77,7 @@ function addNewButton() {
 
          gifDiv.append(gifImage);
 
-         
+        
       
          $("#gifs-appear-here").prepend(gifDiv);
 
@@ -96,38 +89,11 @@ renderButtons();
 addNewButton();
 
 
-        
-
-    //     gifImage.attr({
-    //       "data-animate", results[i].images.fixed_height.url,
-    //       'data-state': "still",
-    //       "data-still", results[i].images.fixed_height_still.url
-    //    });
-       
-            
-
-            // gifDiv.attr({'data-state': "still"})
-
-            // var gifImage = $("<img>");
-
-//NEW
-            // var gifImage = $("<img id= 'gifimg'>");
-
-            // gifImage.attr("src", results[i].images.fixed_height_still.url);
-//NEW        
-//             gifImage.attr({'data-animate': results[i].images.fixed_height.url});
-// //NEW
-//             gifImage.attr({'data-state' : "still"});
-// //NEW
-//             gifImage.attr({'data-still' : results[i].images.fixed_height_still.url});
-
-    // gifDiv.append(gifImage);
     $(document).on("click", ".character", displayCharInfo);
 
         
-    // $("#gifs-appear-here").prepend(gifImage);
 
-    $(".image").on("click", ".image", function() {
+    $(document).on("click", ".image", function() {
        
         var state = $(this).attr("data-state");
         if (state==="still") {
@@ -140,16 +106,10 @@ addNewButton();
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still");
           
-            if (results[i].rating !== "r" && results[i].rating !=="pg-13")
+           
         }
 
     });
 
 });
           
-
-// $(document).on("click", ".character", displayCharInfo);
-   
-// renderButtons();
-
-// });
