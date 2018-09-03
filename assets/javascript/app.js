@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
     var disneyChar = [
@@ -48,71 +47,61 @@ function addNewButton() {
 }
 
 
-  function displayCharInfo() {
-    var character = $(this).attr("data-name");
-    var queryURL = 
-    "https://api.giphy.com/v1/gifs/search?q=" + character + "&api_key=YHliQajpvzitiejwcdK5HJXqQBLCQWy4&limit=10";
+function displayCharInfo() {
+  var character = $(this).attr("data-name");
+  var queryURL = 
+  "https://api.giphy.com/v1/gifs/search?q=" + character + "&api_key=YHliQajpvzitiejwcdK5HJXqQBLCQWy4&limit=12";
+  
+  $.ajax ({
+    url: queryURL,
+    method: "GET"
+
+  }).then(function(response) {
     
-    $.ajax ({
-      url: queryURL,
-      method: "GET"
+    var results = response.data;
+    
+    for (var i = 0; i < results.length; i++) {
 
-    }).then(function(response) {
-     
-      var results = response.data;
-      
-      for (var i = 0; i < results.length; i++) {
+      var gifDiv = $("<div>");
+      gifDiv.addClass("col-lg-4");
 
-        var gifDiv = $("<div>");
-        gifDiv.addClass("col-lg-6");
+      var gifImage = $("<img width='100%' height='300px'>");
 
-       
-        var gifImage = $("<img width='100%' height='300px'>");
+      if (results[i].rating !== "r" && results[i].rating !=="pg-13" && results[i].rating !=="y")
 
-        if (results[i].rating !== "r" && results[i].rating !=="pg-13")
-        gifImage.attr("src", results[i].images.fixed_height_still.url);
-        
-         gifImage.attr("data-still", results[i].images.fixed_height_still.url);
-         gifImage.attr("data-animate", results[i].images.fixed_height.url);
-         gifImage.attr("data-state", "still");
-         gifImage.addClass("image");
+      gifImage.attr("src", results[i].images.fixed_height_still.url);
+      gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+      gifImage.attr("data-animate", results[i].images.fixed_height.url);
+      gifImage.attr("data-state", "still");
+      gifImage.addClass("image");
 
-         gifDiv.append(gifImage);
+      gifDiv.append(gifImage);
 
-         $("#gifs-appear-here").prepend(gifDiv);
+      $("#gifs-appear-here").prepend(gifDiv);
 
-         var gifRating = $("<p id='center'>").text("Rating " + results[i].rating);
-         gifDiv.append(gifRating);
-        
-
-
-
-      
-      }
-    });
+      var gifRating = $("<p id='center'>").text("Rating " + results[i].rating);
+      gifDiv.append(gifRating);
+    }
+  });
 }
 renderButtons();
 addNewButton();
 
-    $(document).on("click", ".character", displayCharInfo);
+$(document).on("click", ".character", displayCharInfo);
 
-    $(document).on("click", ".image", function() {
-       
-        var state = $(this).attr("data-state");
-        if (state==="still") {
-        
-           
-            $(this).attr("src", $(this).attr("data-animate"));
-            $(this).attr("data-state", "animate");
+$(document).on("click", ".image", function() {
+      
+  var state = $(this).attr("data-state");
+    if (state==="still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
 
-        } else  {
-            $(this).attr("src", $(this).attr("data-still"));
-            $(this).attr("data-state", "still");
-          
-           
-        }
+    } else  {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");       
+    }
 
-    });
+  });
 
 });
           

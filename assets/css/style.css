@@ -1,41 +1,56 @@
 body {
     font-family: 'Aladin', cursive;
-
+    background-image: url("../images/jack.jpg");
 }
+
 .character {
     color: purple;
     margin-right: 10px;
-    margin-bottom: 10px;
-    font-size: 25px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    border-radius: 5px;
 }
 
 #add-character {
-    background-color: purple;
-    font-size: 20px;
+    background-color: #421C52;
+    font-size: 25px;
     color: white;
     padding: 5px 10px;
-}
-
-#character-input {
-    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .image {
-    border: solid 10px black;
+    border: solid 3px white;
+    border-radius: 15px;
+    margin-left: 15px;
 }
 
 #input {
     font-size: 30px;
+    color: #FCD667;
+    margin-top: 20px;
 }
 
 #center {
     text-align: center;
-}
-
-#character-input {
-    background-color: yellow;
+    color: white;
+    font-size: 25px;
 }
 
 h1 {
-    font-size: 80px;
+    font-size: 90px;
+    color: #FCD667;
 }
+
+#character-input {
+    background-color: white;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#smallheader {
+    color: white;
+    font-size: 35px;
+}
+
