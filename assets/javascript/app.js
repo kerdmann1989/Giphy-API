@@ -33,15 +33,20 @@ function addNewButton() {
   $("#add-character").on("click", function (event) {
     event.preventDefault();
     var character = $("#character-input").val().trim();
+    $("#character-input").val("")
     if (character == "") {
         return false;
     }
+
     disneyChar.push(character);
 
     renderButtons();
+  
     return false;
+
   })
 }
+
 
   function displayCharInfo() {
     var character = $(this).attr("data-name");
@@ -59,14 +64,11 @@ function addNewButton() {
       for (var i = 0; i < results.length; i++) {
 
         var gifDiv = $("<div>");
-        var gifRating = $("<p>").text("Rating " + results[i].rating);
+        gifDiv.addClass("col-lg-6");
 
-        gifDiv.append(gifRating);
        
+        var gifImage = $("<img width='100%' height='300px'>");
 
-      var gifImage = $("<img>");
-      console.log("?")
-    
         if (results[i].rating !== "r" && results[i].rating !=="pg-13")
         gifImage.attr("src", results[i].images.fixed_height_still.url);
         
@@ -77,9 +79,13 @@ function addNewButton() {
 
          gifDiv.append(gifImage);
 
-        
-      
          $("#gifs-appear-here").prepend(gifDiv);
+
+         var gifRating = $("<p id='center'>").text("Rating " + results[i].rating);
+         gifDiv.append(gifRating);
+        
+
+
 
       
       }
@@ -88,10 +94,7 @@ function addNewButton() {
 renderButtons();
 addNewButton();
 
-
     $(document).on("click", ".character", displayCharInfo);
-
-        
 
     $(document).on("click", ".image", function() {
        

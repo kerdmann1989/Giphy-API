@@ -1,0 +1,41 @@
+body {
+    font-family: 'Aladin', cursive;
+
+}
+.character {
+    color: purple;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+#add-character {
+    background-color: purple;
+    font-size: 20px;
+    color: white;
+    padding: 5px 10px;
+}
+
+#character-input {
+    background-color: white;
+}
+
+.image {
+    border: solid 10px black;
+}
+
+#input {
+    font-size: 30px;
+}
+
+#center {
+    text-align: center;
+}
+
+#character-input {
+    background-color: yellow;
+}
+
+h1 {
+    font-size: 80px;
+}

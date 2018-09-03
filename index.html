@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giphy API</title>
-   
-   
+    <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
 </head>
+
 <body>
 
-<div class="container">
-  <h1>Disney Character Search</h1>
 
-  <div id="characters"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 id="newheader">Disney Gif Mania</h1>
+                <hr>
+            </div>
+        </div>
+        <h2>Click a button and see what happens</h2>
+        <br>
+        <div id="characters"></div>
 
-  <form id="character-form">
-      <label for="character-input">Enter a Disney Character</label>
-     
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="character-form">
+                    <br>
+                    <label for="character-input"><h2 id=
+                        "input">Enter your own Disney character!</h2></label>
+                    <br>
+                    <input type="text" id="character-input"> <br>
+                    <br>
+                    <input id="add-character" type="submit" value="Submit">
+                </form>
+                <hr>
 
-      <input type="text" 
-      id="character-input"> <br>
-      
+            </div>
+        </div>
+        <div class="row">
 
-  <input id ="add-character" type ="submit" value="Submit">
+            <div class="row" id="gifs-appear-here" class="row"></div>
+        </div>
 
-  </form>
-<div id="gifs-appear-here"></div>
-
-</div>
+     </div>
+    
+    </div>
         
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="./assets/javascript/app.js"></script>
-  
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/javascript/app.js"></script>
+
 </body>
+
 </html>
