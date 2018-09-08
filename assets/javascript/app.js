@@ -48,6 +48,7 @@ function addNewButton() {
 
 
 function displayCharInfo() {
+  $("#gifs-appear-here").empty();
   var character = $(this).attr("data-name");
   var queryURL = 
   "https://api.giphy.com/v1/gifs/search?q=" + character + "&api_key=YHliQajpvzitiejwcdK5HJXqQBLCQWy4&limit=12";
